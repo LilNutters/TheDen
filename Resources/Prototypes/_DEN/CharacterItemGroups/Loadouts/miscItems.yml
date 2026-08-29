@@ -87,6 +87,8 @@
     id: LoadoutPillCanisterIron
   - type: loadout
     id: LoadoutPillCanisterCopper
+  - type: loadout
+    id: LoadoutPillCanisterMannitol
 
 - type: characterItemGroup
   id: LoadoutPrescriptionPainkiller

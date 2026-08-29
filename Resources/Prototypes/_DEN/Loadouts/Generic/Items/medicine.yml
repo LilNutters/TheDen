@@ -359,3 +359,14 @@
     group: LoadoutPrescriptions
   items:
   - PillCanisterCopper
+
+- type: loadout
+  id: LoadoutPillCanisterMannitol # Brain damage treatment
+  category: GeneralMedical
+  description: reagent-desc-mannitol
+  cost: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutPrescriptions
+  items:
+  - PillCanisterMannitol

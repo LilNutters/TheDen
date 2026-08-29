@@ -1029,3 +1029,33 @@
     contents:
     - id: PillAmbuzol
       amount: 5
+
+## Mannitol
+## Standard treatment for brain damage. No actual gameplay effect.
+
+- type: entity
+  suffix: Mannitol 5u
+  parent: Pill
+  id: PillMannitol
+  components:
+  - type: Label
+    currentLabel: mannitol 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Mannitol
+          Quantity: 5
+
+- type: entity
+  parent: PillCanister
+  id: PillCanisterMannitol
+  suffix: Mannitol, 5u x5
+  components:
+  - type: Label
+    currentLabel: mannitol 5u
+  - type: StorageFill
+    contents:
+    - id: PillMannitol
+      amount: 5

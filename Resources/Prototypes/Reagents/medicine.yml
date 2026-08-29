@@ -1387,14 +1387,21 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:PopupMessage
+      ## DEN - Replace the "fading" messages with moodlets to encourage players to space out medication doses
+      #- !type:PopupMessage
+      #  conditions:
+      #  - !type:ReagentThreshold
+      #    min: 15
+      #  type: Local
+      #  visualType: Medium
+      #  messages: [ "mannitol-effect-enlightened" ]
+      #  probability: 0.2
+      - !type:ChemAddMoodlet # DEN - Add moodlets for non-addictive roleplay chems
+        moodPrototype: MannitolBenefit
+        guidebookShowEffectName: true
         conditions:
-        - !type:ReagentThreshold
-          min: 15
-        type: Local
-        visualType: Medium
-        messages: [ "mannitol-effect-enlightened" ]
-        probability: 0.2
+          - !type:ReagentThreshold
+            min: 0.5
 
 - type: reagent
   id: Psicodine

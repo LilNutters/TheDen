@@ -70,3 +70,10 @@
   moodletOnEnd: PainRelief # For a total of 14 minutes
   moodChange: 1
   timeout: 420 #7 minutes
+
+  # Miscellaneous
+
+- type: moodEffect
+  id: MannitolBenefit
+  moodChange: 1
+  timeout: 420 #7 minutes
