@@ -16,6 +16,8 @@ namespace Content.Client.Guidebook.RichText;
 [UsedImplicitly]
 public sealed class TextLinkTag : IMarkupTag
 {
+    [Dependency] private readonly IUriOpener _uriOpener = default!; // Den
+
     public string Name => "textlink";
 
     public Control? Control;
@@ -62,14 +64,31 @@ public sealed class TextLinkTag : IMarkupTag
 
             if (current is not ILinkClickHandler handler)
                 continue;
-            handler.HandleClick(link);
+
+            // Den begin: return if click was consumed
+            if (handler.HandleClick(link))
+                return;
+            // Den end
+        }
+
+        // Den add: handle web links
+        if (link.StartsWith("http://") || link.StartsWith("https://"))
+        {
+            _uriOpener.OpenUri(link);
             return;
         }
+        // Den end
+
         Logger.Warning($"Warning! No valid ILinkClickHandler found.");
     }
 }
 
 public interface ILinkClickHandler
 {
-    public void HandleClick(string link);
+    /// <summary>
+    /// Fired when a link nested inside a control is clicked.
+    /// </summary>
+    /// <param name="link"></param>
+    /// <returns><value>true</value> to consume the event</returns>
+    bool HandleClick(string link); // Den: void -> bool, implicit access modifier
 }

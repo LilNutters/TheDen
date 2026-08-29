@@ -52,10 +52,10 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler
         };
     }
 
-    public void HandleClick(string link)
+    public bool HandleClick(string link) // Den: return void -> return bool
     {
         if (!_entries.TryGetValue(link, out var entry))
-            return;
+            return false; // Den: return void -> return bool
 
         if (Tree.TryGetIndexFromMetadata(entry, out var index))
         {
@@ -64,6 +64,8 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler
         }
         else
             ShowGuide(entry);
+
+        return true; // Den: return void -> return bool
     }
 
     private void OnSelectionChanged(TreeItem? item)
