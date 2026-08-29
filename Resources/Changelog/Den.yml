@@ -19205,3 +19205,10 @@ Entries:
   id: 1892
   time: '2026-08-29T10:34:13.0000000+00:00'
   url: https://github.com/TheDenSS14/TheDen/pull/2731
+- author: GreggTheFather
+  changes:
+    - type: Remove
+      message: Removed Lighthouse fully
+  id: 1893
+  time: '2026-08-29T23:00:49.0000000+00:00'
+  url: https://github.com/TheDenSS14/TheDen/pull/2729
